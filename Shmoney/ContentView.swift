@@ -9,13 +9,19 @@ import SwiftUI
 import Combine
 
 struct ContentView: View {
+    @State private var wage = 21.0
+    @State private var taxrate = 0.152
     var body: some View {
-        stopwatchBody()
+        VStack{
+            
+            stopwatchBody(sw: Stopwatch(w: wage, tr: taxrate))
+            
+        }
     }
 }
 
 struct stopwatchBody: View {
-    @ObservedObject var sw : Stopwatch = Stopwatch(w: 21.0, tr: 0.152)
+    @ObservedObject var sw : Stopwatch
     var body: some View {
         VStack (){
             Group{

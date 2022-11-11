@@ -10,10 +10,8 @@ import Foundation
 public class Stopwatch: ObservableObject {
     var secondsElapsed = 0.0
     var running = false
-    // var wage = 21.0
     var wage: Double
     var timer = Timer()
-    // var taxrate = 0.152
     var taxrate: Double
     @Published var formattedTime = "00:00:00:00 @ $00.00/HOUR (0.00% ETR)"
     @Published var formattedMoney = "$00.00"
