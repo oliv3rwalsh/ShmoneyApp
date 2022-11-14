@@ -18,9 +18,14 @@ public class Stopwatch: ObservableObject {
     @Published var leftText = "START"
     @Published var formattedPTMoney = "$00.00"
     
+    @Published var formattedWage = "00.00"
+    @Published var formattedTaxRate = "00.00"
+    
     init(w: Double, tr: Double){
         self.wage = w
         self.taxrate = tr
+        self.formatWage()
+        self.formatTaxRate()
         self.updateFormattedTime()
     }
     
@@ -55,8 +60,7 @@ public class Stopwatch: ObservableObject {
         if(seconds.count < 2){
             seconds = "0" + seconds
         }
-        self.formattedTime = hours + ":" + minutes + ":" + seconds + " @ $" +
-        String(round(self.wage * 100)/100) + "0/HOUR (" + String(Double(round(self.taxrate * 1000) / 10)) + "% ETR)"
+        self.formattedTime = hours + ":" + minutes + ":" + seconds + " @ $" + formattedWage + "/HOUR (" + formattedTaxRate + "% ETR)"
     }
     func updateFormattedMoney(taxed: Bool){
         // figure out current money
@@ -105,17 +109,58 @@ public class Stopwatch: ObservableObject {
     func incWage(){
         self.wage = Double(round((self.wage + 0.25) * 100) / 100)
         self.reset()
+        self.formatWage()
+        self.updateFormattedTime()
     }
     func decWage(){
-        self.wage = Double(round((self.wage - 0.25) * 100) / 100)
-        self.reset()
+        if(self.wage > 0.25){
+            self.wage = Double(round((self.wage - 0.25) * 100) / 100)
+            self.reset()
+            self.formatWage()
+            self.updateFormattedTime()
+        }
     }
     func incTR(){
-        self.taxrate = Double(round((self.taxrate + 0.001) * 1000) / 1000)
+        self.taxrate = Double(round((self.taxrate + 0.0005) * 10000) / 10000)
         self.reset()
+        self.formatTaxRate()
+        self.updateFormattedTime()
     }
     func decTR(){
-        self.taxrate = Double(round((self.taxrate - 0.001) * 1000) / 1000)
-        self.reset()
+        if(self.taxrate > 0.0){
+            self.taxrate = Double(round((self.taxrate - 0.0005) * 10000) / 10000)
+            self.reset()
+            self.formatTaxRate()
+            self.updateFormattedTime()
+        }
+    }
+    func formatWage(){
+        let w = String(self.wage)
+        let wageParts = w.description.components(separatedBy: ".")
+        var dollars = wageParts[0]
+        var cents = wageParts[1]
+        if(dollars.count < 2){
+            dollars = "0" + dollars
+        }
+        if(cents.count < 2){
+            cents = cents + "0"
+        }
+        self.formattedWage = dollars + "." + cents
+    }
+    func formatTaxRate(){
+        let tr = String(self.taxrate * 100)
+        let taxParts = tr.description.components(separatedBy: ".")
+        var per = taxParts[0]
+        var dec = taxParts[1]
+        if(per.count < 2){
+            per = "0" + per
+        }
+        if(dec.count < 2){
+            dec = dec + "0"
+        }
+        if(dec.count > 2){
+            dec = String(dec.prefix(2)) // fix rounding issue
+        }
+        self.formattedTaxRate = per + "." + dec
     }
 }

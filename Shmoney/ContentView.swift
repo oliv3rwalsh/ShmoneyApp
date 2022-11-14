@@ -8,7 +8,7 @@
 import SwiftUI
 import Combine
 
-let mainStopwatch = Stopwatch(w: 21.0, tr: 0.152)
+let mainStopwatch = Stopwatch(w: 20.0, tr: 0.152)
 
 struct ContentView: View {
     var body: some View {

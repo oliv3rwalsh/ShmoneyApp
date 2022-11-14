@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ShmoneySettings: View {
+    @ObservedObject var msw = mainStopwatch
     var body: some View {
         VStack{
             Spacer()
@@ -16,14 +17,14 @@ struct ShmoneySettings: View {
                 Text("HOURLY WAGE ($)").headerText()
                 HStack{
                     Spacer()
-                    Button(action: {mainStopwatch.decWage()}){
+                    Button(action: {msw.decWage()}){
                         Image(systemName: "minus.square")
                     }
                     Spacer()
-                    let w = String(mainStopwatch.wage)
+                    let w = String(msw.formattedWage)
                     Text(w).counterText()
                     Spacer()
-                    Button(action: {mainStopwatch.incWage()}){
+                    Button(action: {msw.incWage()}){
                         Image(systemName: "plus.square")
                     }
                     Spacer()
@@ -34,14 +35,14 @@ struct ShmoneySettings: View {
                 Text("EFFECTIVE TAX RATE (%)").headerText()
                 HStack{
                     Spacer()
-                    Button(action: {mainStopwatch.decTR()}){
+                    Button(action: {msw.decTR()}){
                         Image(systemName: "minus.square")
                     }
                     Spacer()
-                    let tr = String(mainStopwatch.taxrate * 100)
+                    let tr = String(msw.formattedTaxRate)
                     Text(tr).counterText()
                     Spacer()
-                    Button(action: {mainStopwatch.incTR()}){
+                    Button(action: {msw.incTR()}){
                         Image(systemName: "plus.square")
                     }
                     Spacer()
