@@ -15,6 +15,12 @@ extension Text {
             size: 80
         ))
     }
+    func headerText () -> some View {
+        self.font(.custom(
+            "Futura",
+            size: 20
+        ))
+    }
     func counterClassText () -> some View {
         self.font(.custom(
             "Futura",

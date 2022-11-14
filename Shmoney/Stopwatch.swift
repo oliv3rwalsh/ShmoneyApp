@@ -21,6 +21,7 @@ public class Stopwatch: ObservableObject {
     init(w: Double, tr: Double){
         self.wage = w
         self.taxrate = tr
+        self.updateFormattedTime()
     }
     
     func leftHandler(){
@@ -55,7 +56,7 @@ public class Stopwatch: ObservableObject {
             seconds = "0" + seconds
         }
         self.formattedTime = hours + ":" + minutes + ":" + seconds + " @ $" +
-        String(self.wage) + "0/HOUR (" + String(taxrate*100) + "% ETR)"
+        String(round(self.wage * 100)/100) + "0/HOUR (" + String(Double(round(self.taxrate * 1000) / 10)) + "% ETR)"
     }
     func updateFormattedMoney(taxed: Bool){
         // figure out current money
@@ -100,5 +101,21 @@ public class Stopwatch: ObservableObject {
         updateFormattedMoney(taxed: true)
         updateFormattedMoney(taxed: false)
         self.leftText = "START"
+    }
+    func incWage(){
+        self.wage = Double(round((self.wage + 0.25) * 100) / 100)
+        self.reset()
+    }
+    func decWage(){
+        self.wage = Double(round((self.wage - 0.25) * 100) / 100)
+        self.reset()
+    }
+    func incTR(){
+        self.taxrate = Double(round((self.taxrate + 0.001) * 1000) / 1000)
+        self.reset()
+    }
+    func decTR(){
+        self.taxrate = Double(round((self.taxrate - 0.001) * 1000) / 1000)
+        self.reset()
     }
 }

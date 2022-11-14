@@ -24,6 +24,10 @@ struct ShmoneyApp: App {
                     .tabItem{
                         Image(systemName: "building.columns")
                     }
+                ShmoneySettings()
+                    .tabItem{
+                        Image(systemName: "gearshape.fill")
+                    }
             }.accentColor(Color(.black))
         }
     }
