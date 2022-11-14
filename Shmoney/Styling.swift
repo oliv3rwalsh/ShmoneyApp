@@ -57,6 +57,7 @@ extension Button {
 extension HStack {
     func tickerContainer() -> some View {
         self.frame(maxHeight: .infinity, alignment: .bottom)
+            .padding(.bottom, 50)
     }
 }
 

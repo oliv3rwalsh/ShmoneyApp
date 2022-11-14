@@ -11,7 +11,20 @@ import SwiftUI
 struct ShmoneyApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView {
+                ContentView()
+                    .tabItem{
+                        Image(systemName: "stopwatch")
+                    }
+                HourCalculator()
+                    .tabItem{
+                        Image(systemName: "repeat")
+                    }
+                TaxCalculator()
+                    .tabItem{
+                        Image(systemName: "building.columns")
+                    }
+            }.accentColor(Color(.black))
         }
     }
 }

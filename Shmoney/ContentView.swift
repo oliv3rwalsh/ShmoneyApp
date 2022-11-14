@@ -12,11 +12,7 @@ struct ContentView: View {
     @State private var wage = 21.0
     @State private var taxrate = 0.152
     var body: some View {
-        VStack{
-            
-            stopwatchBody(sw: Stopwatch(w: wage, tr: taxrate))
-            
-        }
+        stopwatchBody(sw: Stopwatch(w: wage, tr: taxrate))
     }
 }
 
