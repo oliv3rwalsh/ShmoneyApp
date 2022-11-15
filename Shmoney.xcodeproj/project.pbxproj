@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		77039FD2291B479C00D4D564 /* HourCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77039FD1291B479C00D4D564 /* HourCalculator.swift */; };
+		775F0EAC2922EDE3009CE756 /* ShmoneySettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775F0EAB2922EDE3009CE756 /* ShmoneySettings.swift */; };
 		7785F3A8291B132600099144 /* ShmoneyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785F3A7291B132600099144 /* ShmoneyApp.swift */; };
 		7785F3AA291B132600099144 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785F3A9291B132600099144 /* ContentView.swift */; };
 		7785F3AC291B132800099144 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7785F3AB291B132800099144 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 		7785F3C5291B132800099144 /* ShmoneyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785F3C4291B132800099144 /* ShmoneyUITestsLaunchTests.swift */; };
 		7785F3D2291B135700099144 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785F3D1291B135700099144 /* Stopwatch.swift */; };
 		7785F3D4291B137600099144 /* Styling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785F3D3291B137600099144 /* Styling.swift */; };
+		77C87D8E2922BBC100814106 /* TaxCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C87D8D2922BBC100814106 /* TaxCalculator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		77039FD1291B479C00D4D564 /* HourCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourCalculator.swift; sourceTree = "<group>"; };
+		775F0EAB2922EDE3009CE756 /* ShmoneySettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShmoneySettings.swift; sourceTree = "<group>"; };
 		7785F3A4291B132600099144 /* Shmoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shmoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7785F3A7291B132600099144 /* ShmoneyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShmoneyApp.swift; sourceTree = "<group>"; };
 		7785F3A9291B132600099144 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -50,6 +53,7 @@
 		7785F3C4291B132800099144 /* ShmoneyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShmoneyUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7785F3D1291B135700099144 /* Stopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
 		7785F3D3291B137600099144 /* Styling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styling.swift; sourceTree = "<group>"; };
+		77C87D8D2922BBC100814106 /* TaxCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxCalculator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +105,10 @@
 			isa = PBXGroup;
 			children = (
 				7785F3A7291B132600099144 /* ShmoneyApp.swift */,
+				775F0EAB2922EDE3009CE756 /* ShmoneySettings.swift */,
 				7785F3A9291B132600099144 /* ContentView.swift */,
 				77039FD1291B479C00D4D564 /* HourCalculator.swift */,
+				77C87D8D2922BBC100814106 /* TaxCalculator.swift */,
 				7785F3D3291B137600099144 /* Styling.swift */,
 				7785F3D1291B135700099144 /* Stopwatch.swift */,
 				7785F3AB291B132800099144 /* Assets.xcassets */,
@@ -270,7 +276,9 @@
 				7785F3D2291B135700099144 /* Stopwatch.swift in Sources */,
 				7785F3D4291B137600099144 /* Styling.swift in Sources */,
 				77039FD2291B479C00D4D564 /* HourCalculator.swift in Sources */,
+				775F0EAC2922EDE3009CE756 /* ShmoneySettings.swift in Sources */,
 				7785F3A8291B132600099144 /* ShmoneyApp.swift in Sources */,
+				77C87D8E2922BBC100814106 /* TaxCalculator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +437,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Shmoney/Preview Content\"";
+				DEVELOPMENT_TEAM = UFHJVNRU2Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -436,6 +445,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,6 +467,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Shmoney/Preview Content\"";
+				DEVELOPMENT_TEAM = UFHJVNRU2Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -464,6 +475,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

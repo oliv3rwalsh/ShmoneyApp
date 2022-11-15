@@ -106,36 +106,36 @@ public class Stopwatch: ObservableObject {
         updateFormattedMoney(taxed: false)
         self.leftText = "START"
     }
-    func incWage(){
+    func incWage(step: Double){
         let twage = self.wage
-        self.wage = Double(round((self.wage + 0.25) * 100) / 100)
+        self.wage = Double(round((self.wage + step) * 100) / 100)
         self.reset()
         self.formatWage()
         self.updateFormattedTime()
         print("Wage changed from " + String(twage) + " to " + String(self.wage))
     }
-    func decWage(){
+    func decWage(step: Double){
         if(self.wage > 0.25){
             let twage = self.wage
-            self.wage = Double(round((self.wage - 0.25) * 100) / 100)
+            self.wage = Double(round((self.wage - step) * 100) / 100)
             self.reset()
             self.formatWage()
             self.updateFormattedTime()
             print("Wage changed from " + String(twage) + " to " + String(self.wage))
         }
     }
-    func incTR(){
+    func incTR(step: Double){
         let ttax = self.taxrate
-        self.taxrate = Double(round((self.taxrate + 0.0005) * 10000) / 10000)
+        self.taxrate = Double(round((self.taxrate + step) * 10000) / 10000)
         self.reset()
         self.formatTaxRate()
         self.updateFormattedTime()
         print("Tax rate changed from " + String(ttax) + " to " + String(self.taxrate))
     }
-    func decTR(){
-        if(self.taxrate > 0.0){
+    func decTR(step: Double){
+        if(self.taxrate > 0.0 && self.taxrate < 1.0){
             let ttax = self.taxrate
-            self.taxrate = Double(round((self.taxrate - 0.0005) * 10000) / 10000)
+            self.taxrate = Double(round((self.taxrate - step) * 10000) / 10000)
             self.reset()
             self.formatTaxRate()
             self.updateFormattedTime()

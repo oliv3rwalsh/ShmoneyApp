@@ -8,9 +8,17 @@
 import SwiftUI
 
 struct HourCalculator: View {
-    @State private var inHours: String = ""
+    @State private var moneyQNT: String = ""
+    @State private var hourQNT: String = ""
     var body: some View {
-        Text("Hour Calculator")
+        VStack{
+            Section(header: Text("Hours").font(.headline)) {
+                TextField("", text: $hourQNT).conversionField()
+            }
+            
+            //TextField("Hours", text: $hourQNT).conversionField()
+            //TextField("Money", text: $moneyQNT).conversionField()
+        }
     }
 }
 

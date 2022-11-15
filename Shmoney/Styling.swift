@@ -85,3 +85,12 @@ extension VStack{
             .shadow(color: .gray, radius: 15, x: 0, y: 0)
     }
 }
+
+extension TextField{
+    func conversionField() -> some View {
+        self.background(Color(.black))
+            .font(.custom("Futura", size: 28))
+            .foregroundColor(Color(.white))
+            .frame(width: 200)
+    }
+}
