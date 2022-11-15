@@ -107,31 +107,39 @@ public class Stopwatch: ObservableObject {
         self.leftText = "START"
     }
     func incWage(){
+        let twage = self.wage
         self.wage = Double(round((self.wage + 0.25) * 100) / 100)
         self.reset()
         self.formatWage()
         self.updateFormattedTime()
+        print("Wage changed from " + String(twage) + " to " + String(self.wage))
     }
     func decWage(){
         if(self.wage > 0.25){
+            let twage = self.wage
             self.wage = Double(round((self.wage - 0.25) * 100) / 100)
             self.reset()
             self.formatWage()
             self.updateFormattedTime()
+            print("Wage changed from " + String(twage) + " to " + String(self.wage))
         }
     }
     func incTR(){
+        let ttax = self.taxrate
         self.taxrate = Double(round((self.taxrate + 0.0005) * 10000) / 10000)
         self.reset()
         self.formatTaxRate()
         self.updateFormattedTime()
+        print("Tax rate changed from " + String(ttax) + " to " + String(self.taxrate))
     }
     func decTR(){
         if(self.taxrate > 0.0){
+            let ttax = self.taxrate
             self.taxrate = Double(round((self.taxrate - 0.0005) * 10000) / 10000)
             self.reset()
             self.formatTaxRate()
             self.updateFormattedTime()
+            print("Tax rate changed from " + String(ttax) + " to " + String(self.taxrate))
         }
     }
     func formatWage(){
@@ -149,7 +157,7 @@ public class Stopwatch: ObservableObject {
     }
     func formatTaxRate(){
         let tr = String(self.taxrate * 100)
-        let taxParts = tr.description.components(separatedBy: ".")
+        let taxParts = tr.components(separatedBy: ".")
         var per = taxParts[0]
         var dec = taxParts[1]
         if(per.count < 2){
@@ -157,10 +165,16 @@ public class Stopwatch: ObservableObject {
         }
         if(dec.count < 2){
             dec = dec + "0"
-        }
-        if(dec.count > 2){
+        } else if(dec.count > 2){
             dec = String(dec.prefix(2)) // fix rounding issue
+            let dd = Double(dec) ?? 0
+            dec = String(round(dd / 5.0) * 5) // round to nearest five (fix rounding issue)
+            dec = dec.components(separatedBy: ".")[0]
+            if(dec.count < 2){
+                dec = "0" + dec
+            }
         }
+        
         self.formattedTaxRate = per + "." + dec
     }
 }
