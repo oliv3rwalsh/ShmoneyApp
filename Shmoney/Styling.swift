@@ -9,6 +9,12 @@ import Foundation
 import SwiftUI
 
 extension Text {
+    func keyboardText() -> some View {
+        self.font(.custom(
+            "Futura",
+            size: 45
+        ))
+    }
     func counterText () -> some View {
         self.font(.custom(
             "Futura",
@@ -58,6 +64,11 @@ extension Button {
         self.background(Color(.black))
         .clipShape(RoundedRectangle(cornerRadius: 10))
     }
+    
+    func keyboardButton() -> some View {
+        self.frame(width: 50, height: 50)
+            .foregroundColor(Color(.black))
+    }
 }
 
 extension HStack {
@@ -92,5 +103,11 @@ extension TextField{
             .font(.custom("Futura", size: 28))
             .foregroundColor(Color(.white))
             .frame(width: 200)
+    }
+}
+
+extension Image{
+    func keyboardImage() -> some View {
+        self.frame(width: 35, height: 35)
     }
 }
