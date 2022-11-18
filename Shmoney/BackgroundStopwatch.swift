@@ -120,8 +120,8 @@ public class BackgroundStopwatch: ObservableObject {
     
     func updateBottomBar(){
         let h = Int(hoursElapsed - hoursElapsed.truncatingRemainder(dividingBy: 1))
-        let m = Int((hoursElapsed * 60) - (hoursElapsed * 60).truncatingRemainder(dividingBy: 1))
-        let s = Int((hoursElapsed * 3600) - (hoursElapsed * 3600).truncatingRemainder(dividingBy: 1))
+        let m = Int((hoursElapsed * 60) - (hoursElapsed * 60).truncatingRemainder(dividingBy: 1)) % 60
+        let s = Int((hoursElapsed * 3600) - (hoursElapsed * 3600).truncatingRemainder(dividingBy: 1)) % 60
         var fh = String(h)
         var fm = String(m)
         var fs = String(s)
@@ -138,13 +138,17 @@ public class BackgroundStopwatch: ObservableObject {
     }
     
     func modifyWage(amount: Double){
-        self.hourlyWage = self.hourlyWage + amount
+        if(self.hourlyWage + amount >= 0){
+            self.hourlyWage = self.hourlyWage + amount
+        }
         self.reset()
         self.updateBottomBar()
     }
     
     func modifyTaxRate(amount: Double){
-        self.effectiveTaxRate = self.effectiveTaxRate + amount
+        if(self.effectiveTaxRate + amount > 0){
+            self.effectiveTaxRate = self.effectiveTaxRate + amount
+        }
         self.reset()
         self.updateBottomBar()
     }

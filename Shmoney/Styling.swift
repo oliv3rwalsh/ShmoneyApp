@@ -9,6 +9,18 @@ import Foundation
 import SwiftUI
 
 extension Text {
+    func settingsText() -> some View {
+        self.font(.custom(
+            "Futura",
+            size: 70
+        ))
+    }
+    func settingsHeaderText() -> some View {
+        self.font(.custom(
+            "Futura",
+            size: 15
+        ))
+    }
     func keyboardText() -> some View {
         self.font(.custom(
             "Futura",
