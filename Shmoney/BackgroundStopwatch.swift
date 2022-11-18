@@ -146,7 +146,7 @@ public class BackgroundStopwatch: ObservableObject {
     }
     
     func modifyTaxRate(amount: Double){
-        if(self.effectiveTaxRate + amount > 0){
+        if(self.effectiveTaxRate + amount >= 0){
             self.effectiveTaxRate = self.effectiveTaxRate + amount
         }
         self.reset()

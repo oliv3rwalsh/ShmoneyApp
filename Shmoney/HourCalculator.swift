@@ -15,26 +15,18 @@ struct HourCalculator: View {
     var body: some View {
         VStack{
             Spacer()
-            VStack{
-                Text("DOLLARS")
-                Text(kh.keyedOutput).counterText()
-            }
             HStack{
-                Image(systemName: "arrow.down").font(.system(size: 30))
+                Text("$" + kh.keyedOutput).counterText()
             }
-            VStack{
-                HStack{
-                    VStack{
-                        Text(ch(a: kh.keyedOutputInt, w: msw.hourlyWage, tr: msw.effectiveTaxRate, h: true)).counterText()
-                            .padding(0)
-                        Text("HOURS")
-                    }
-                    VStack{
-                        Text(ch(a: kh.keyedOutputInt, w: msw.hourlyWage, tr: msw.effectiveTaxRate, h: false)).grayCT()
-                            .padding(0)
-                        Text("MINS").foregroundColor(Color(.gray))
-                    }
-                }
+            Spacer().frame(height: 20)
+            HStack{
+                Image(systemName: "equal.circle").font(.system(size: 40))
+            }
+            Spacer().frame(height: 5)
+            HStack{
+                Text(ch(a: kh.keyedOutputInt, w: msw.hourlyWage, tr: msw.effectiveTaxRate, h: true)).counterText()
+                Text(":").counterText().padding(.bottom, 20)
+                Text(ch(a: kh.keyedOutputInt, w: msw.hourlyWage, tr: msw.effectiveTaxRate, h: false)).counterText()
             }
             Spacer()
             Keyboard(kh: kh)

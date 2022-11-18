@@ -15,7 +15,7 @@ public class KeyboardHandler: ObservableObject {
         self.keyedOutputInt = Int(dko) ?? 0
     }
     func keyPressed(k: Int){
-        if(self.keyedOutput.count < 5){
+        if(self.keyedOutput.count < 4){
             self.keyedOutputInt = self.keyedOutputInt * 10
             self.keyedOutputInt = self.keyedOutputInt + k
             self.keyedOutput = String(self.keyedOutputInt)
