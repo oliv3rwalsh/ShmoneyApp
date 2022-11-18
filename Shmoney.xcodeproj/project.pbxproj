@@ -20,6 +20,7 @@
 		7785F3D2291B135700099144 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785F3D1291B135700099144 /* Stopwatch.swift */; };
 		7785F3D4291B137600099144 /* Styling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785F3D3291B137600099144 /* Styling.swift */; };
 		77C87D8E2922BBC100814106 /* TaxCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C87D8D2922BBC100814106 /* TaxCalculator.swift */; };
+		77EF82BA2926B8E90060B98A /* BackgroundStopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EF82B92926B8E90060B98A /* BackgroundStopwatch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		7785F3D1291B135700099144 /* Stopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
 		7785F3D3291B137600099144 /* Styling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styling.swift; sourceTree = "<group>"; };
 		77C87D8D2922BBC100814106 /* TaxCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxCalculator.swift; sourceTree = "<group>"; };
+		77EF82B92926B8E90060B98A /* BackgroundStopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundStopwatch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				77C87D8D2922BBC100814106 /* TaxCalculator.swift */,
 				7785F3D3291B137600099144 /* Styling.swift */,
 				7785F3D1291B135700099144 /* Stopwatch.swift */,
+				77EF82B92926B8E90060B98A /* BackgroundStopwatch.swift */,
 				777739982924505D00DB9B3A /* KeyboardHandler.swift */,
 				7785F3AB291B132800099144 /* Assets.xcassets */,
 				7785F3AD291B132800099144 /* Preview Content */,
@@ -276,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7785F3AA291B132600099144 /* ContentView.swift in Sources */,
+				77EF82BA2926B8E90060B98A /* BackgroundStopwatch.swift in Sources */,
 				7785F3D2291B135700099144 /* Stopwatch.swift in Sources */,
 				7785F3D4291B137600099144 /* Styling.swift in Sources */,
 				77039FD2291B479C00D4D564 /* HourCalculator.swift in Sources */,

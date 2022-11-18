@@ -8,40 +8,42 @@
 import SwiftUI
 import Combine
 
-let mainStopwatch = Stopwatch(w: 20.0, tr: 0.15)
+let mainStopwatch = BackgroundStopwatch(w: 20.0, etr: 0.15)
 
 struct ContentView: View {
     var body: some View {
-        stopwatchBody(sw: mainStopwatch)
+        // stopwatchBody(sw: mainStopwatch)
+        backgroundStopwatchBody(sw: mainStopwatch)
     }
 }
 
-struct stopwatchBody: View {
-    @ObservedObject var sw : Stopwatch
+struct backgroundStopwatchBody: View {
+    @ObservedObject var sw : BackgroundStopwatch
     var body: some View {
-        VStack (){
-            Group{
-                Spacer().frame(height: 200)
-                // GROSS COUNTER
+        VStack{
+            Spacer().frame(height: 200)
+            VStack{
+                // Gross Counter
                 HStack(alignment: .firstTextBaseline){
-                    Text(sw.formattedMoney).counterText()
+                    Text(sw.grossMoneyAmount).counterText()
                     Text("GRO").counterClassText()
                 }
-                // NET COUNTER
+                // Net Counter
                 HStack(alignment: .firstTextBaseline){
-                    Text(sw.formattedPTMoney).grayCT()
+                    Text(sw.netMoneyAmount).grayCT()
                     Text("NET").grayCCT()
                 }
-                // ACTION BUTTONS
-                HStack(spacing: 35) {
-                    Button(action: {sw.leftHandler()}){ Text(sw.leftText).timerButtonText()}.timerButton()
+                // Action Buttons
+                HStack(spacing: 35){
+                    Button(action: {sw.leftButtonHandler()}){ Text(sw.leftButtonText).timerButtonText()}.timerButton()
                     Button(action: {sw.reset()}){ Text("RESET").timerButtonText()}.timerButton()
                 }
             }
             // TIME AND PROPERTY INDICATOR
-            HStack(alignment: .bottom){ Text(sw.formattedTime).timeTicker() }.tickerContainer()
+            HStack{ Text(sw.bottomBarText).timeTicker() }.tickerContainer()
         }
     }
+
 }
 
 struct ContentView_Previews: PreviewProvider {

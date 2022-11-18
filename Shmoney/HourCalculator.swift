@@ -25,12 +25,12 @@ struct HourCalculator: View {
             VStack{
                 HStack{
                     VStack{
-                        Text(ch(a: kh.keyedOutputInt, w: msw.wage, tr: msw.taxrate, h: true)).counterText()
+                        Text(ch(a: kh.keyedOutputInt, w: msw.hourlyWage, tr: msw.effectiveTaxRate, h: true)).counterText()
                             .padding(0)
                         Text("HOURS")
                     }
                     VStack{
-                        Text(ch(a: kh.keyedOutputInt, w: msw.wage, tr: msw.taxrate, h: false)).grayCT()
+                        Text(ch(a: kh.keyedOutputInt, w: msw.hourlyWage, tr: msw.effectiveTaxRate, h: false)).grayCT()
                             .padding(0)
                         Text("MINS").foregroundColor(Color(.gray))
                     }

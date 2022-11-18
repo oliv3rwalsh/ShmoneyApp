@@ -14,17 +14,17 @@ struct ShmoneySettings: View {
             Spacer()
             Spacer()
             VStack{
-                Text("HOURLY WAGE ($)").headerText()
+                Text("HOURLY WAGE").headerText()
                 HStack{
                     Spacer()
-                    Button(action: {msw.decWage(step: 0.25)}){
+                    Button(action: {msw.modifyWage(amount: -0.25)}){
                         Image(systemName: "minus.square").font(.system(size: 35))
                     }
                     Spacer()
-                    let w = String(msw.formattedWage)
+                    let w = String(msw.formatMoneyAmount(amt: msw.hourlyWage, symbol: "$"))
                     Text(w).counterText()
                     Spacer()
-                    Button(action: {msw.incWage(step: 0.25)}){
+                    Button(action: {msw.modifyWage(amount: 0.25)}){
                         Image(systemName: "plus.square").font(.system(size: 35))
                     }
                     Spacer()
@@ -32,17 +32,17 @@ struct ShmoneySettings: View {
             }
             Spacer()
             VStack{
-                Text("EFFECTIVE TAX RATE (%)").headerText()
+                Text("EFFECTIVE TAX RATE").headerText()
                 HStack{
                     Spacer()
-                    Button(action: {msw.decTR(step: 0.0005)}){
+                    Button(action: {msw.modifyTaxRate(amount: -0.0005)}){
                         Image(systemName: "minus.square").font(.system(size: 35))
                     }
                     Spacer()
-                    let tr = String(msw.formattedTaxRate)
+                    let tr = String(msw.formatMoneyAmount(amt: (msw.effectiveTaxRate * 100), symbol: "%"))
                     Text(tr).counterText()
                     Spacer()
-                    Button(action: {msw.incTR(step: 0.0005)}){
+                    Button(action: {msw.modifyTaxRate(amount: 0.0005)}){
                         Image(systemName: "plus.square").font(.system(size: 35))
                     }
                     Spacer()
