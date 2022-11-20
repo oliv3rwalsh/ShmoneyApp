@@ -12,8 +12,14 @@ let mainStopwatch = BackgroundStopwatch(w: 20.0, etr: 0.15)
 
 struct ContentView: View {
     var body: some View {
-        // stopwatchBody(sw: mainStopwatch)
-        backgroundStopwatchBody(sw: mainStopwatch)
+        VStack{
+            HStack{
+                Spacer()
+                Text("STOPWATCH").topBarText()
+                Spacer()
+            }.topBar()
+            backgroundStopwatchBody(sw: mainStopwatch)
+        }
     }
 }
 

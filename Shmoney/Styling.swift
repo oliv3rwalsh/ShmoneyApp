@@ -8,12 +8,25 @@
 import Foundation
 import SwiftUI
 
+extension Color {
+    static let oldPrimaryColor = Color(UIColor.systemIndigo)
+    static let shmoneyGreen = Color("ShmoneyGreen")
+}
+
 extension Text {
     func settingsText() -> some View {
         self.font(.custom(
             "Futura",
             size: 70
         ))
+    }
+    func topBarText() -> some View {
+        self.font(.custom(
+            "Futura",
+            size: 20
+        ))
+        .foregroundColor(Color.white)
+        .padding(20)
     }
     func settingsHeaderText() -> some View {
         self.font(.custom(
@@ -73,7 +86,7 @@ extension Text {
 
 extension Button {
     func timerButton() -> some View {
-        self.background(Color(.black))
+        self.background(Color("ShmoneyGreen"))
         .clipShape(RoundedRectangle(cornerRadius: 10))
     }
     
@@ -87,6 +100,11 @@ extension HStack {
     func tickerContainer() -> some View {
         self.frame(maxHeight: .infinity, alignment: .bottom)
             .padding(.bottom, 50)
+    }
+    func topBar() -> some View {
+        self.background(Color("ShmoneyGreen"))
+            .foregroundColor(Color(.white))
+            .frame(height: 30)
     }
 }
 

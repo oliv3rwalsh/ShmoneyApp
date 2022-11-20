@@ -20,15 +20,21 @@ struct ShmoneyApp: App {
                     .tabItem{
                         Image(systemName: "repeat")
                     }
-                TaxCalculator()
-                    .tabItem{
-                        Image(systemName: "building.columns")
-                    }
+//                TaxCalculator()
+//                    .tabItem{
+//                        Image(systemName: "building.columns")
+//                    }
                 ShmoneySettings()
                     .tabItem{
                         Image(systemName: "gearshape.fill")
                     }
-            }.accentColor(Color(.black))
+                    .toolbar(.visible, for: .tabBar)
+                    .toolbarBackground(
+                        Color.yellow,
+                        for: .tabBar)
+                
+            }.accentColor(Color("ShmoneyGreen"))
+            .toolbarBackground(Color("ShmoneyGreen"), for: .tabBar)
         }
     }
 }
